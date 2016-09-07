@@ -60,6 +60,6 @@ public class USBank extends Bank {
     }
 
     public double moneyPaidMonthlyForSalary() {
-        return  0;
+        return  3000;
     }
 }

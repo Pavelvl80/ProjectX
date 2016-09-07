@@ -115,6 +115,13 @@ public class BankSystem {
     }
 
     void paySalary(User user) {
+        double balance = user.getBalance();
+        double salary = user.getBank().moneyPaidMonthlyForSalary();
 
+        if (salary > 0) {
+
+            balance += salary;
+            user.setBalance(balance);
+        }
     }
 }

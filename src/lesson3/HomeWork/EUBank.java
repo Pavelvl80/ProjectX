@@ -60,6 +60,6 @@ public class EUBank extends Bank {
     }
 
     public double moneyPaidMonthlyForSalary() {
-        return 0;
+        return 2000;
     }
 }
