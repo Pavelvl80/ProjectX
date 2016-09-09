@@ -1,4 +1,4 @@
-package lesson3.HomeWork;
+package lesson3.homeWork;
 
 /**
  * Created by Edvard Piri on 05.09.2016.

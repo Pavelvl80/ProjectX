@@ -1,11 +1,11 @@
-package lesson3.HomeWork;
+package lesson3.homeWork;
 
 /**
  * Created by Edvard Piri on 05.09.2016.
  */
-public class USBank extends Bank {
+public class EUBank extends Bank {
 
-    public USBank(long id, String bankCountry, String currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
+    public EUBank(long id, String bankCountry, String currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
@@ -13,10 +13,10 @@ public class USBank extends Bank {
         int withdrawal = 0;
         switch (getCurrency()) {
             case "USD":
-                withdrawal = 1000;
+                withdrawal = 2000;
                 break;
             case "EUR":
-                withdrawal = 1200;
+                withdrawal = 2200;
                 break;
         }
         return withdrawal;
@@ -26,10 +26,10 @@ public class USBank extends Bank {
         int limit = 0;
         switch (getCurrency()) {
             case "USD":
-                limit = Integer.MAX_VALUE;
+                limit = 10000;
                 break;
             case "EUR":
-                limit = 10000;
+                limit = 20000 ;
                 break;
         }
         return limit;
@@ -39,10 +39,10 @@ public class USBank extends Bank {
         int rate = 0;
         switch (getCurrency()) {
             case "USD":
-                rate = 1;
+                rate = 0;
                 break;
             case "EUR":
-                rate = 2;
+                rate = 1;
         }
         return 0;
     }
@@ -54,12 +54,12 @@ public class USBank extends Bank {
                 commission = 5;
                 break;
             case "EUR":
-                commission = 6;
+                commission = 2;
         }
         return commission;
     }
 
     public double moneyPaidMonthlyForSalary() {
-        return  3000;
+        return 2000;
     }
 }

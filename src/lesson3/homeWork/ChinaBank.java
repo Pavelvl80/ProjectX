@@ -1,22 +1,21 @@
-package lesson3.HomeWork;
+package lesson3.homeWork;
 
 /**
  * Created by Edvard Piri on 05.09.2016.
  */
-public class EUBank extends Bank {
+public class ChinaBank extends Bank {
 
-    public EUBank(long id, String bankCountry, String currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
+    public ChinaBank(long id, String bankCountry, String currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
-
     public int getLimitOfWithdrawal() {
         int withdrawal = 0;
         switch (getCurrency()) {
             case "USD":
-                withdrawal = 2000;
+                withdrawal = 100;
                 break;
             case "EUR":
-                withdrawal = 2200;
+                withdrawal = 150;
                 break;
         }
         return withdrawal;
@@ -29,7 +28,7 @@ public class EUBank extends Bank {
                 limit = 10000;
                 break;
             case "EUR":
-                limit = 20000 ;
+                limit = 5000;
                 break;
         }
         return limit;
@@ -39,10 +38,10 @@ public class EUBank extends Bank {
         int rate = 0;
         switch (getCurrency()) {
             case "USD":
-                rate = 0;
+                rate = 1;
                 break;
             case "EUR":
-                rate = 1;
+                rate = 0;
         }
         return 0;
     }
@@ -51,15 +50,15 @@ public class EUBank extends Bank {
         int commission = 0;
         switch (getCurrency()) {
             case "USD":
-                commission = 5;
+                commission = 3;
                 break;
             case "EUR":
-                commission = 2;
+                commission = 10;
         }
         return commission;
     }
 
     public double moneyPaidMonthlyForSalary() {
-        return 2000;
+        return 3000;
     }
 }
