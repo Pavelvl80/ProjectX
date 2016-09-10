@@ -26,11 +26,8 @@ public class User {
 
         double withdraw(int summ) {
             double doubleSumm = summ;
-            if (summ <= 1000) {
-                doubleSumm = doubleSumm + ((doubleSumm * 5) / 100);
-            } else {
-                doubleSumm = doubleSumm + ((doubleSumm * 10) / 100);
-            }
+            int commission =  summ <= 1000 ? 5 : 10;
+            doubleSumm += (doubleSumm * commission) / 100;
             balance -= doubleSumm;
             return doubleSumm;
         }
