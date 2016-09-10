@@ -46,14 +46,18 @@ public class ChinaBank extends Bank {
         return 0;
     }
 
-    public int getCommission() {
+    public int getCommission(int amount) {
         int commission = 0;
         switch (getCurrency()) {
             case "USD":
-                commission = 3;
+                if(amount < 1000)
+                    commission = (amount * 3) / 100;
+                else commission = (amount * 5) / 100;
                 break;
             case "EUR":
-                commission = 10;
+                if(amount < 1000)
+                    commission = (amount * 10) / 100;
+                else commission = (amount * 11) / 100;
         }
         return commission;
     }

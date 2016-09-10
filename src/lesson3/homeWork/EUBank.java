@@ -47,14 +47,18 @@ public class EUBank extends Bank {
         return 0;
     }
 
-    public int getCommission() {
+    public int getCommission(int amount) {
         int commission = 0;
         switch (getCurrency()) {
             case "USD":
-                commission = 5;
+                if(amount < 1000)
+                    commission = (amount * 5) / 100;
+                else commission = (amount * 7) / 100;
                 break;
             case "EUR":
-                commission = 2;
+                if(amount < 1000)
+                    commission = (amount * 2) / 100;
+                else commission = (amount * 4) / 100;
         }
         return commission;
     }

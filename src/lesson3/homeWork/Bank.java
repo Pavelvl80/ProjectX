@@ -39,7 +39,7 @@ public class Bank {
         return 0;
     }
 
-    public int getCommission() {
+    public int getCommission(int amount) {
         return 0;
     }
 

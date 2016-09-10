@@ -9,10 +9,7 @@ public class BankSystem {
     void withdrawOfUser(User user, int amount) {
         double balance = user.getBalance();
         long total = user.getBank().getTotalCapital();
-        int commission = user.getBank().getCommission();
-
-        if (amount > 1000) commission += 2;
-        commission = (amount * user.getBank().getCommission()) / 100;
+        int commission = user.getBank().getCommission(amount);
 
         if (amount > 0) {
             if (user.getBank().getLimitOfWithdrawal() >= amount) {
@@ -41,10 +38,7 @@ public class BankSystem {
     void fundUser(User user, int amount) {
         double balance = user.getBalance();
         long total = user.getBank().getTotalCapital();
-        int commission = user.getBank().getCommission();
-
-        if (amount > 1000) commission += 2;
-        commission = (amount * user.getBank().getCommission()) / 100;
+        int commission = user.getBank().getCommission(amount);
 
         if (amount > 0) {
             if (amount <= user.getBank().getLimitOfFunding()) {
@@ -72,10 +66,7 @@ public class BankSystem {
 
         long fromTotal = fromUser.getBank().getTotalCapital();
         long toTotal = toUser.getBank().getTotalCapital();
-        int commission = fromUser.getBank().getCommission();
-
-        if (amount > 1000) commission += 2;
-        commission = (amount * fromUser.getBank().getCommission()) / 100;
+        int commission = fromUser.getBank().getCommission(amount);
 
         if (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency()) {
             if (amount > 0) {
