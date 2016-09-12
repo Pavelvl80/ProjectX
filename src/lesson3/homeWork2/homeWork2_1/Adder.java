@@ -5,8 +5,6 @@ package lesson3.homeWork2.homeWork2_1;
  */
 public class Adder extends Arithmetic {
     boolean chek(Integer a, Integer b) {
-        if (a >= b) {
-            return true;
-        } else return false;
+        return a >= b; 
     }
 }
