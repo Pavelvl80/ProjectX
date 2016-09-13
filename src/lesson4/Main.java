@@ -10,7 +10,7 @@ public class Main {
         EmployeeSystem employeeSystem = new EmployeeSystem();
 
         Employee managareEmployee1 = new ManagareEmployee(111, "Ron", 35, 100, 400);
-        Employee managareEmployee2 = new ManagareEmployee(112, "Rod", 36, 200, 300);
+        Employee managareEmployee2 = new ManagareEmployee(112, "Rod", 36, 200, 1001);
         Employee managareEmployee3 = new ManagareEmployee(113, "Ross", 37, 300, 200);
         Employee devoloperEmployee1 = new DeveloperEmployee(121, "John", 23, 200, 10, 8, 10);
         Employee devoloperEmployee2 = new DeveloperEmployee(121, "Jinn", 24, 300, 10, 8, 15);
@@ -19,10 +19,8 @@ public class Main {
 
         employeeSystem.setAllEmployeesSalary(employees);
 
-
         employeeSystem.getEmpBiggestSalary(employees);
         employeeSystem.getEmpNames(employees);
         employeeSystem.getEmpThreeMinSalary(employees);
-
     }
 }

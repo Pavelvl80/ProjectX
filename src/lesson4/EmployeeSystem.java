@@ -30,26 +30,21 @@ public class EmployeeSystem {
     }
 
     void getEmpThreeMinSalary(Employee[] employees) {
-        int m1 = Integer.MAX_VALUE;
-        int m2 = Integer.MAX_VALUE;
-        int m3 = Integer.MAX_VALUE;
+        int[] min = {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
 
         System.out.println("\b");
         for (int i = 0; i < employees.length; i++) {
-            if (m1 > employees[i].getSalary()) {
-                m1 = employees[i].getSalary();
+            if (min[0] > employees[i].getSalary()) {
+                min[0] = employees[i].getSalary();
             }
         }
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() > m1 && employees[i].getSalary() < m2) {
-                m2 = employees[i].getSalary();
+        for (int j = 0; j < 2; j++) {
+            for (int i = 0; i < employees.length; i++) {
+                if (employees[i].getSalary() > min[j] && employees[i].getSalary() < min[j+1]) {
+                    min[j+1] = employees[i].getSalary();
+                }
             }
         }
-        for(int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() > m2 && employees[i].getSalary() < m3) {
-                m3 = employees[i].getSalary();
-            }
-        }
-        System.out.println(m1 + " " + m2 + " " + m3);
+        System.out.println(min[0] + " " + min[1] + " " + min[2]);
     }
 }
