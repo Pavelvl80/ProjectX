@@ -5,6 +5,46 @@ package lesson4.homework;
  */
 public class EmployeeSystem {
 
+    int[] getEmpsSalary(Employee[] employees) {
+        int[] salary = new int[employees.length];
+        for (int i = 0; i < employees.length; i++) {
+            salary[i] = employees[i].getSalary();
+        }
+        return salary;
+    }
+
+    int[] getEmpsBubbleSortSalary(Employee[] employees) {
+        int[] salary = getEmpsSalary(employees);
+
+        for (int i = 0; i < employees.length; i++) {
+            for (int j = 0; j < employees.length - 1; j++) {
+                if (salary[i] < salary[j]) {
+                    int box = salary[i];
+                    salary[i] = salary[j];
+                    salary[j] = box;
+                }
+            }
+        }
+        return salary;
+    }
+
+    int[] getEmpsInsertSortSalary(Employee[] employees) {
+        int[] salary = getEmpsSalary(employees);
+
+        int key;
+        int index = 0;
+        for (int j = 0; j < employees.length; j++) {
+            int elem = salary[j];
+            index = j - 1;
+            while (index > 0 && salary[index] > elem) {
+                salary[index + 1] = salary[index];
+                index = index - 1;
+                salary[index + 1] = elem;
+            }
+        }
+        return salary;
+    }
+
     void setAllEmployeesSalary(Employee[] employees) {
         for (int i = 0; i < employees.length; i++) {
             employees[i].setSalary(employees[i].calculateSalary());
@@ -27,26 +67,20 @@ public class EmployeeSystem {
         }
     }
 
-    void getEmpThreeMinSalary(Employee[] employees) {
-        int[] min = {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
-        int[] salary = new int[employees.length];
+    void getEmpMinSalary(Employee[] employees, int num) {
+        int[] salary = getEmpsBubbleSortSalary(employees);
+        int minSalary = 0;
+        int i;
 
-        for (int i = 0; i < employees.length; i++) {
-            salary[i] = employees[i].getSalary();
-        }
         System.out.println("\b");
-        for (int i = 0; i < salary.length; i++) {
-            if (min[0] > salary[i]) {
-                min[0] = salary[i];
+
+        for (i = 0; i < num; i++) {
+            if (minSalary == salary[i]) {
+                num++;
+            } else {
+                minSalary = salary[i];
+                System.out.print(minSalary + " ");
             }
         }
-        for (int j = 0; j < 2; j++) {
-            for (int i = 0; i < salary.length; i++) {
-                if (salary[i] > min[j] && salary[i] < min[j + 1]) {
-                    min[j + 1] = salary[i];
-                }
-            }
-        }
-        System.out.println(min[0] + " " + min[1] + " " + min[2]);
     }
 }

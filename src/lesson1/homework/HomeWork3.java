@@ -1,4 +1,4 @@
-package lesson1.homewrok;
+package lesson1.homework;
 
 /**
  * Created by Edvard Piri on 28.08.2016.

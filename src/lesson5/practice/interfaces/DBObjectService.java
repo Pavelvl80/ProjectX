@@ -1,7 +1,5 @@
 package lesson5.practice.interfaces;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 /**
  * Created by Edvard Piri on 14.09.2016.
  */

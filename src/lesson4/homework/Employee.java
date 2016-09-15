@@ -26,6 +26,7 @@ public abstract class Employee {
     abstract int calculateSalary();
 
 
+
 // GETTERS-SETTERS
 
     public int getSalary() {

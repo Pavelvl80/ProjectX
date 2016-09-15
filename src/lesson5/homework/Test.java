@@ -1,4 +1,4 @@
-package lesson5.practice;
+package lesson5.homework;
 
 /**
  * Created by Edvard Piri on 14.09.2016.

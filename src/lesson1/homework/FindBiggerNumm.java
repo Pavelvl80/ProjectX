@@ -1,9 +1,9 @@
-package lesson1.homewrok;
+package lesson1.homework;
 
 /**
  * Created by Edvard Piri on 27.08.2016.
  */
-public class HomeWork {
+public class FindBiggerNumm {
     //метод поиска наименьшего числа
     public static int min(int array[]) {
         int minInt = array[0];
