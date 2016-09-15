@@ -9,6 +9,7 @@ public class USBank extends Bank {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
+    @Override
     public int getLimitOfWithdrawal() {
         int withdrawal = 0;
         switch (getCurrency()) {
@@ -22,6 +23,7 @@ public class USBank extends Bank {
         return withdrawal;
     }
 
+    @Override
     public int getLimitOfFunding() {
         int limit = 0;
         switch (getCurrency()) {
@@ -35,6 +37,7 @@ public class USBank extends Bank {
         return limit;
     }
 
+    @Override
     public int getMonthlyRate() {
         int rate = 0;
         switch (getCurrency()) {
@@ -47,6 +50,7 @@ public class USBank extends Bank {
         return 0;
     }
 
+    @Override
     public int getCommission(int amount) {
         int commission = 0;
         switch (getCurrency()) {
@@ -59,7 +63,8 @@ public class USBank extends Bank {
         return commission;
     }
 
+    @Override
     public double moneyPaidMonthlyForSalary() {
-        return  3000;
+        return 3000;
     }
 }

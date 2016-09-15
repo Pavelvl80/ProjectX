@@ -7,7 +7,10 @@ public class ChinaBank extends Bank {
 
     public ChinaBank(long id, String bankCountry, String currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
+
     }
+
+    @Override
     public int getLimitOfWithdrawal() {
         int withdrawal = 0;
         switch (getCurrency()) {
@@ -21,6 +24,7 @@ public class ChinaBank extends Bank {
         return withdrawal;
     }
 
+    @Override
     public int getLimitOfFunding() {
         int limit = 0;
         switch (getCurrency()) {
@@ -34,6 +38,7 @@ public class ChinaBank extends Bank {
         return limit;
     }
 
+    @Override
     public int getMonthlyRate() {
         int rate = 0;
         switch (getCurrency()) {
@@ -46,6 +51,7 @@ public class ChinaBank extends Bank {
         return 0;
     }
 
+    @Override
     public int getCommission(int amount) {
         int commission = 0;
         switch (getCurrency()) {
@@ -58,6 +64,7 @@ public class ChinaBank extends Bank {
         return commission;
     }
 
+    @Override
     public double moneyPaidMonthlyForSalary() {
         return 3000;
     }

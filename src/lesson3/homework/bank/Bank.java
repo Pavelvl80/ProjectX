@@ -3,7 +3,7 @@ package lesson3.homework.bank;
 /**
  * Created by Edvard Piri on 05.09.2016.
  */
-public class Bank {
+public abstract class Bank {
     private long id;
     private String bankCountry;
     private String currency;
@@ -27,25 +27,15 @@ public class Bank {
 
     //METHODS----------------------------------------
 
-    public int getLimitOfWithdrawal() {
-        return 0;
-    }
+    public abstract int getLimitOfWithdrawal();
 
-    public int getLimitOfFunding() {
-        return 0;
-    }
+    public abstract int getLimitOfFunding();
 
-    public int getMonthlyRate() {
-        return 0;
-    }
+    public abstract int getMonthlyRate();
 
-    public int getCommission(int amount) {
-        return 0;
-    }
+    public abstract int getCommission(int amount);
 
-    public double moneyPaidMonthlyForSalary() {
-        return 0;
-    }
+    public abstract double moneyPaidMonthlyForSalary();
 
     //GETTERS-SETTERS---------------------------------
 
