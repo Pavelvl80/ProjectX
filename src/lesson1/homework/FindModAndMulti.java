@@ -3,7 +3,7 @@ package lesson1.homework;
 /**
  * Created by Edvard Piri on 28.08.2016.
  */
-public class HomeWork3 {
+public class FindModAndMulti {
     public static int sum(int array[]) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
