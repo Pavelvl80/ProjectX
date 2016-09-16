@@ -53,17 +53,22 @@ public class Controller {
     }
 
     Room[] check(API api1, API api2) {
-        Room[] apiRoom1 = api1.getAll();
-        Room[] apiRoom2 = api2.getAll();
-        int size = apiRoom1.length + apiRoom2.length;
+        Room[] apiRooms1 = api1.getAll();
+        Room[] apiRooms2 = api2.getAll();
+        int size = apiRooms1.length + apiRooms2.length;
         Room[] rooms = new Room[size];
 
-        for (int i = 0; i > size; i++)
-            if (apiRoom1[i] == apiRoom2[i]) {
-                rooms[i] = apiRoom1[i];
+        for (int j = 0; j < apiRooms1.length; j++) {
+            for (int i = 0; i < apiRooms2.length; i++) {
+                if (apiRooms1[i] == apiRooms2[j]) {
+                    rooms[i] = apiRooms1[i];
+                }
             }
+        }
         return rooms;
     }
 
 
 }
+//[Room{id=123654, price=100, persons=2, dateAvailableFrom=Thu Jan 01 01:00:02 CET 1970, hotelName='kiev's hotel', cityName='kiev'} не равны
+//[Room{id=123654, price=100, persons=2, dateAvailableFrom=Thu Jan 01 01:00:02 CET 1970, hotelName='kiev's hotel', cityName='kiev'}
