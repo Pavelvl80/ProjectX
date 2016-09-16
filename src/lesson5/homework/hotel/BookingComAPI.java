@@ -8,19 +8,19 @@ import java.util.Date;
 public class BookingComAPI implements API {
     Date date = new Date(2001);
     Room room1 = new Room(123654, 100, 2, date, "kiev's hotel", "kiev");
-    Room room2 = new Room(123655, 200, 4, date, "kiev's hotel", "kiev");
-    Room room3 = new Room(123656, 300, 2, date, "moscow's hotel", "moscow");
-    Room room4 = new Room(123657, 600, 4, date, "moscow's hotel", "moscow");
-    Room room5 = new Room(123658, 250, 2, date, "berlin's hotel", "berlin");
+    Room room2 = new Room(123655, 100, 2, date, "kiev's hotel", "kiev");
+    Room room3 = new Room(123656, 200, 4, date, "kiev's hotel", "kiev");
+    Room room4 = new Room(123657, 250, 2, date, "moscow's hotel", "moscow");
+    Room room5 = new Room(123658, 250, 4, date, "moscow's hotel", "moscow");
 
     Room[] rooms = {room1, room2, room3, room4, room5};
 
     @Override
-    public Room findRooms(int price, int persons, String city, String hotel) {
-        Room foundRooms = null;
+    public Room[] findRooms(int price, int persons, String city, String hotel) {
+        Room[] foundRooms = new Room[rooms.length];
         for (int i = 0; i < rooms.length; i++) {
             if (price == rooms[i].getPrice() && persons == rooms[i].getPersons() && city == rooms[i].getCityName() && hotel == rooms[i].getHotelName()) {
-                foundRooms = rooms[i];
+                foundRooms[i] = rooms[i];
             }
         }
         return foundRooms;
