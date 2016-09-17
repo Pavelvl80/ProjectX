@@ -18,24 +18,6 @@ public class Controller {
         return size;
     }
 
-    /**
-     * Room[] requestRooms(int price, int persons, String city, String hotel) {
-     * Room[] rooms1 = bookingComAPI.findRooms(price, persons, city, hotel);
-     * Room[] rooms2 = googleApi.findRooms(price, persons, city, hotel);
-     * int size = rooms1.length + rooms2.length;
-     * Room[] rooms = new Room[size];
-     * <p>
-     * for (int i = 0; i < rooms1.length; i++) {
-     * rooms[i] = rooms1[i];
-     * }
-     * <p>
-     * for (int i = rooms1.length; i < rooms2.length; i++) {
-     * rooms[i] = rooms2[i];
-     * }
-     * <p>
-     * return rooms;
-     * }
-     */
 
     Room[] requestRooms(int price, int persons, String city, String hotel) {
         Room[] rooms = new Room[getSizeRooms(price, persons, city, hotel)];
@@ -49,7 +31,8 @@ public class Controller {
                 }
             }
         }
-        return rooms;
+
+        return nullDeleter(rooms);
     }
 
     Room[] check(API api1, API api2) {
@@ -66,6 +49,19 @@ public class Controller {
             }
         }
         return rooms;
+    }
+
+
+    Room[] nullDeleter(Room[] rooms) { //создает новый  массив без null 
+        int a = 0;
+        for (int i = 0; i < rooms.length; i++) {
+            if (rooms[i] != null) a++;
+        }
+        Room[] roomsOutNulls = new Room[a];
+        for (int i = 0; i < a; i++) {
+            roomsOutNulls[i] = rooms[i];
+        }
+        return roomsOutNulls;
     }
 
 
