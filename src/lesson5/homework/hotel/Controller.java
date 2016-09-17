@@ -52,7 +52,7 @@ public class Controller {
     }
 
 
-    Room[] nullDeleter(Room[] rooms) { //создает новый  массив без null 
+    Room[] nullDeleter(Room[] rooms) { //создает новый  массив без null
         int a = 0;
         for (int i = 0; i < rooms.length; i++) {
             if (rooms[i] != null) a++;
