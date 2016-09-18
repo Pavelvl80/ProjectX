@@ -25,14 +25,12 @@ public class Controller {
 
         for (int i = 0; i < apis.length; i++) {
             for (int j = 0; j < apis[i].findRooms(price, persons, city, hotel).length; j++) {
-                if (apis[i].findRooms(price, persons, city, hotel)[j] != null) {
-                    rooms[all] = apis[i].findRooms(price, persons, city, hotel)[j];
-                    all++;
-                }
+                rooms[all] = apis[i].findRooms(price, persons, city, hotel)[j];
+                all++;
             }
         }
 
-        return nullDeleter(rooms);
+        return rooms;
     }
 
     Room[] check(API api1, API api2) {
@@ -43,7 +41,7 @@ public class Controller {
 
         for (int j = 0; j < apiRooms1.length; j++) {
             for (int i = 0; i < apiRooms2.length; i++) {
-                if (apiRooms1[i] == apiRooms2[j]) {
+                if (apiRooms1[i].equals(apiRooms2)) {
                     rooms[i] = apiRooms1[i];
                 }
             }
@@ -52,19 +50,21 @@ public class Controller {
     }
 
 
-    Room[] nullDeleter(Room[] rooms) { //создает новый  массив без null
+    Room[] nullDeleter(Room[] rooms) {
         int a = 0;
         for (int i = 0; i < rooms.length; i++) {
             if (rooms[i] != null) a++;
         }
         Room[] roomsOutNulls = new Room[a];
-        for (int i = 0; i < a; i++) {
-            roomsOutNulls[i] = rooms[i];
+        a = 0;
+        for (int i = 0; i < rooms.length; i++) {
+            if (rooms[i] != null) {
+                roomsOutNulls[a] = rooms[i];
+                a++;
+            }
         }
         return roomsOutNulls;
     }
 
 
 }
-//[Room{id=123654, price=100, persons=2, dateAvailableFrom=Thu Jan 01 01:00:02 CET 1970, hotelName='kiev's hotel', cityName='kiev'} не равны
-//[Room{id=123654, price=100, persons=2, dateAvailableFrom=Thu Jan 01 01:00:02 CET 1970, hotelName='kiev's hotel', cityName='kiev'}
