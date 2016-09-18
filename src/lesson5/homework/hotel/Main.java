@@ -17,8 +17,8 @@ public class Main {
 
        // System.out.println(Arrays.asList(bookingComApi.findRooms(100, 2, "kiev", "kiev's hotel")));
 
-       // System.out.println(Arrays.asList(controller.check(bookingComApi, tripAdvisorAPI)));
+       System.out.println(Arrays.asList(controller.check(bookingComApi, tripAdvisorAPI)));
 
-        System.out.println(Arrays.asList(controller.nullDeleter(controller.requestRooms(100, 2, "kiev", "kiev's hotel"))));
+       // System.out.println(Arrays.asList(controller.requestRooms(100, 2, "kiev", "kiev's hotel")));
     }
 }

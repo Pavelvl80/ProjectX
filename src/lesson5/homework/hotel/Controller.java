@@ -30,7 +30,7 @@ public class Controller {
             }
         }
 
-        return rooms;
+        return nullDeleter(rooms);
     }
 
     Room[] check(API api1, API api2) {
@@ -41,12 +41,12 @@ public class Controller {
 
         for (int j = 0; j < apiRooms1.length; j++) {
             for (int i = 0; i < apiRooms2.length; i++) {
-                if (apiRooms1[i].equals(apiRooms2)) {
+                if (apiRooms1[j].equals(apiRooms2[i])) {
                     rooms[i] = apiRooms1[i];
                 }
             }
         }
-        return rooms;
+        return nullDeleter(rooms);
     }
 
 
