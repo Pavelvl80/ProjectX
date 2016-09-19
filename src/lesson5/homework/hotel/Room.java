@@ -6,12 +6,12 @@ import java.util.Date;
  * Created by Edvard Piri on 15.09.2016.
  */
 public class Room {
-    long id;
-    int price;
-    int persons;
-    Date dateAvailableFrom;
-    String hotelName;
-    String cityName;
+    private long id;
+    private int price;
+    private int persons;
+    private Date dateAvailableFrom;
+    private String hotelName;
+    private String cityName;
 
     public Room(long id, int price, int persons, Date dateAvailableFrom, String hotelName, String cityName) {
         this.id = id;

@@ -5,16 +5,27 @@ package lesson5.homework.hotel;
  */
 public class DAOSys implements DAO {
 
+    Room[] dbRooms = new Room[10];
+
     @Override
     public Room save(Room room) {
+        for (int i = 0; i < dbRooms.length; i++) {
+            if (dbRooms[i] == null) dbRooms[i] = room;
+        }
         System.out.println(room.toString() + " saved");
         return room;
     }
 
     @Override
     public boolean delete(Room room) {
+        for (int i = 0; i < dbRooms.length; i++) {
+            if (dbRooms[i].equals(room)) {
+                dbRooms = null;
+                return true;
+            }
+        }
         System.out.println(room.toString() + " deleted");
-        return true;
+        return false;
     }
 
     @Override
@@ -25,7 +36,14 @@ public class DAOSys implements DAO {
 
     @Override
     public Room findById(long id) {
-        //get from db room
-        return null; //room
+        for (int i = 0; i < dbRooms.length; i++) {
+            if (dbRooms[i].getId() == id) return dbRooms[i];
+        }
+        return null;
+    }
+
+    @Override
+    public Room[] getAll() {
+        return dbRooms;
     }
 }

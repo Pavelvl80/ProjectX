@@ -5,8 +5,8 @@ package lesson1.homework;
  */
 public class FindSecondLargest {
     public static int secondLargest(int array[]) {
-        int maxInt = -2147483648;
-        int secLar = -2147483648;
+        int maxInt = Integer.MIN_VALUE;
+        int secLar = Integer.MIN_VALUE;
         for (int i = 0; i < array.length; i++) {
             if (maxInt < array[i]) {
                 maxInt = array[i];

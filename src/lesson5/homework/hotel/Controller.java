@@ -50,11 +50,9 @@ public class Controller {
     }
 
 
-    Room[] nullDeleter(Room[] rooms) {
+   static final Room[] nullDeleter(Room[] rooms) {
         int a = 0;
-        for (int i = 0; i < rooms.length; i++) {
-            if (rooms[i] != null) a++;
-        }
+        for (int i = 0; i < rooms.length; i++) if (rooms[i] != null) a++;
         Room[] roomsOutNulls = new Room[a];
         a = 0;
         for (int i = 0; i < rooms.length; i++) {
