@@ -6,6 +6,8 @@ package lesson6.homework.userutils;
 public final class UserUtils {
     static User[] uniqueUsers(User[] users) {
         int length = 0;
+        int index = 0;
+
         for (int i = 0; i < users.length; i++) {
             for (int j = i; j < users.length; j++) {
                 if (i != j && users[i].equals(users[j])) {
@@ -15,9 +17,10 @@ public final class UserUtils {
         }
         User[] cloneUsers = new User[length];
         for (int i = 0; i < users.length; i++) {
-            for (int j = i; j < users.length; j++) {
-                if (i != j && users[i].equals(users[j])) {
-                    cloneUsers[i] = users[j];
+            for (int j = i + 1; j < users.length; j++) {
+                if (users[i].equals(users[j])){
+                    cloneUsers[index] = users[j];
+                    index++;
                 }
             }
         }
@@ -45,7 +48,7 @@ public final class UserUtils {
 
     static final User[] paySalaryToUsers(User[] users) {
         for (User user : users) {
-            user.setBalance(user.getBalance() + user.getSalary());
+            user.setBalance(user.getSalary() + user.getBalance());
         }
         return users;
     }
