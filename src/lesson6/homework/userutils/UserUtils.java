@@ -47,6 +47,13 @@ public final class UserUtils {
     }
 
     static final User[] paySalaryToUsers(User[] users) {
+//        for (int i = 0; i < users.length; i++) {
+//            int balance = users[4].getBalance();
+//            int salary = users[4].getSalary();
+//            balance += salary;
+//
+//            users[4].setBalance(balance);
+//        }
         for (User user : users) {
             user.setBalance(user.getSalary() + user.getBalance());
         }
