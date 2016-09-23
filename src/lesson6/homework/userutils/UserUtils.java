@@ -9,8 +9,8 @@ public final class UserUtils {
         int index = 0;
 
         for (int i = 0; i < users.length; i++) {
-            for (int j = i; j < users.length; j++) {
-                if (i != j && users[i].equals(users[j])) {
+            for (int j = i + 1; j < users.length; j++) {
+                if (users[i].equals(users[j])) {
                     length++;
                 }
             }
@@ -18,8 +18,8 @@ public final class UserUtils {
         User[] cloneUsers = new User[length];
         for (int i = 0; i < users.length; i++) {
             for (int j = i + 1; j < users.length; j++) {
-                if (users[i].equals(users[j])){
-                    cloneUsers[index] = users[j];
+                if (users[i].equals(users[j]) ) {
+                    cloneUsers[index] = users[i];
                     index++;
                 }
             }
@@ -47,13 +47,6 @@ public final class UserUtils {
     }
 
     static final User[] paySalaryToUsers(User[] users) {
-//        for (int i = 0; i < users.length; i++) {
-//            int balance = users[4].getBalance();
-//            int salary = users[4].getSalary();
-//            balance += salary;
-//
-//            users[4].setBalance(balance);
-//        }
         for (User user : users) {
             user.setBalance(user.getSalary() + user.getBalance());
         }
