@@ -36,6 +36,7 @@ public final class UserUtils {
                 length++;
             }
         }
+        //TODO rename this array
         User[] equalBalance = new User[length];
         for (int i = 0; i < users.length; i++) {
             if (balance == users[i].getBalance()) {
@@ -76,6 +77,7 @@ public final class UserUtils {
         for (User user : users) {
             if (user != null) newLength++;
         }
+        //TODO try to improve this
         User[] newUsers = new User[newLength];
         for (User user : users) {
             if (user != null) {
