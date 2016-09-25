@@ -1,4 +1,4 @@
-package lesson1.homework;
+package lesson2.homework;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
 import lesson6.homework.arrayutils.ArrayUtils;
