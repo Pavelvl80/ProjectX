@@ -8,7 +8,7 @@ public class Main {
         Employee employee = new DeveloperEmployee(100, 50, "Jack");
         employee.paySalary();
 
-        DeveloperEmployee developerEmployee = new DeveloperEmployee(100, 50, "Test");
+        DeveloperEmployee developerEmployee = new DeveloperEmployee(100, 50, "TestInterface");
         developerEmployee.paySalary();
     }
 

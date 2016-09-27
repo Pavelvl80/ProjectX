@@ -21,6 +21,7 @@ public class ArrayUtilsTest {
         System.out.println(ArrayUtils.sum(array));
 
 
+
     }
 
     static void test(int[] ints) {
