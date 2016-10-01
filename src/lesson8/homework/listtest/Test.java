@@ -1,4 +1,4 @@
-package lesson8.homework;
+package lesson8.homework.listtest;
 
 /**
  * Created by Edvard Piri on 27.09.2016.

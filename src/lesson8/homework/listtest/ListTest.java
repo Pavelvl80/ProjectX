@@ -1,4 +1,4 @@
-package lesson8.homework;
+package lesson8.homework.listtest;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
