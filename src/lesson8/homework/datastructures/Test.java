@@ -14,7 +14,6 @@ public class Test {
         arrayList.add(3);
         System.out.println(arrayList.get(0));
 
-
 //        int a = 1;
 //        System.out.println(+a);
 //        System.out.println(test(a));

@@ -8,10 +8,10 @@ public class User {
     private long id;
     private String firstName;
     private String lastName;
-    private City city;
+    private String city;
     private int balance;
 
-    public User(long id, String firstName, String lastName, City city, int balance) {
+    public User(long id, String firstName, String lastName, String city, int balance) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,11 +43,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public City getCity() {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
@@ -65,4 +65,5 @@ public class User {
                 "city '" + city + '\'' +
                 '}';
     }
+
 }
