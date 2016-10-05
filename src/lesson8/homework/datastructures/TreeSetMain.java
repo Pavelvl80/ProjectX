@@ -61,6 +61,14 @@ public class TreeSetMain {
 //        });
 
         /**- print Order with largest price using only one set method - get*/
+        int maxInt = Integer.MIN_VALUE;
+        for (Order order : treeSet) {
+            order.getPrice();
+            if (maxInt <= order.getPrice()) {
+                maxInt = order.getPrice();
+            }
+        }
+        System.out.println(maxInt);
 
         /**- delete orders where currency is USD using Iterator*/
         Iterator<Order> itr = treeSet.iterator();
