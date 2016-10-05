@@ -3,13 +3,13 @@ package lesson8.homework.datastructures;
 /**
  * Created by Edvard Piri on 29.09.2016.
  */
-public class Order  {
+public class Order implements Comparable<Order> {
     private long id;
     private int price;
     private Currency currency;
     private String itemName;
     private String shopIdentificator;
-    User user;
+    private User user;
 
     public Order(long id, int price, Currency currency, String itemName, String shopIdentificator, User user) {
         this.id = id;
@@ -18,6 +18,17 @@ public class Order  {
         this.itemName = itemName;
         this.shopIdentificator = shopIdentificator;
         this.user = user;
+    }
+
+    @Override
+    public int compareTo(Order o) {
+        if (this.id == o.id &&
+                this.price == o.price &&
+                this.currency == o.currency &&
+                this.itemName == o.itemName &&
+                this.shopIdentificator == o.shopIdentificator &&
+                this.user.equals(o.user)) return 0;
+        return 1;
     }
 
     public long getId() {
@@ -74,7 +85,7 @@ public class Order  {
                 "pr " + price +
                 ", iN '" + itemName + '\'' +
                 ", shId'" + shopIdentificator + '\'' +
-                ", user" + user +
+                ", user" +
                 ", Currency " + currency +
                 '}';
     }

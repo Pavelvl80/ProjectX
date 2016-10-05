@@ -22,18 +22,37 @@ public class TreeSetMain {
         User user10 = new User(333133, "Jack", "Smith", "Kiev", 3000);
 
         Order order1 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox", user1);
-        Order order2 = new Order(871234, 300, Currency.USD, "Mystery box of mystery", "EmptyBox", user2);
+        Order order2 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox", user3);
         Order order3 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox", user3);
         Order order4 = new Order(871234, 500, Currency.USD, "Mystery box of mystery", "EmptyBox", user4); //Duplicates
-        Order order5 = new Order(871234, 500, Currency.USD, "Mystery box of mystery", "EmptyBox", user5); //Duplicates
+        Order order5 = new Order(871234, 500, Currency.USD, "Mystery box of mystery", "EmptyBox", user4); //Duplicates
         Order order6 = new Order(871234, 700, Currency.EUR, "Mystery box of mystery", "EmptyBox6", user6);
         Order order7 = new Order(871234, 800, Currency.EUR, "fMystery box of mystery", "EmptyBox7", user7);
         Order order8 = new Order(871234, 900, Currency.EUR, "gMystery box of mystery", "EmptyBox8", user8);
         Order order9 = new Order(871234, 1100, Currency.EUR, "Mystery box of mystery", "EmptyBox9", user9);
         Order order10 = new Order(871234, 1000, Currency.EUR, "Mystery box of mystery", "EmptyBox10", user10);
+//        Order order1 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox");
+//        Order order2 = new Order(871234, 300, Currency.USD, "Mystery box of mystery", "EmptyBox");
+//        Order order3 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox");
+//        Order order4 = new Order(871234, 500, Currency.USD, "Mystery box of mystery", "EmptyBox"); //Duplicates
+//        Order order5 = new Order(871234, 500, Currency.USD, "Mystery box of mystery", "EmptyBox"); //Duplicates
+//        Order order6 = new Order(871234, 700, Currency.EUR, "Mystery box of mystery", "EmptyBox6");
+//        Order order7 = new Order(871234, 800, Currency.EUR, "fMystery box of mystery", "EmptyBox7");
+//        Order order8 = new Order(871234, 900, Currency.EUR, "gMystery box of mystery", "EmptyBox8");
+//        Order order9 = new Order(871234, 1100, Currency.EUR, "Mystery box of mystery", "EmptyBox9");
+//        Order order10 = new Order(871234, 1000, Currency.EUR, "Mystery box of mystery", "EmptyBox10");
 
-        Set<String> treeSet = new TreeSet<>();
-        treeSet.add("12");
+        Set<Order> treeSet = new TreeSet<>();
+        treeSet.add(order1);
+        treeSet.add(order2);
+        treeSet.add(order3);
+        treeSet.add(order4);
+        treeSet.add(order5);
+        treeSet.add(order6);
+        treeSet.add(order7);
+        treeSet.add(order8);
+        treeSet.add(order9);
+        treeSet.add(order10);
 
 
         /** - check if set contain Order where User’s lastName is - “Petrov” */
@@ -41,18 +60,15 @@ public class TreeSetMain {
 //            if (order.getUser().getLastName().equals("Petrov")) System.out.println("I SEE YOU, PETROV");
 //        });
 
-        /**- print Order with largest price using only one set method - get */
-        //treeSet.
+        /**- print Order with largest price using only one set method - get. у SETов нет метода get, не пойму задание  */
 
         /**- delete orders where currency is USD using Iterator*/
-//        Iterator<Order> itr = treeSet.iterator();
-//        int i = 0;
-//        while (i > 10) {
-//            if (itr.next().getCurrency().equals(Currency.USD));
-//            i++;
-//        }
-//
-//        System.out.println(treeSet);
-//
+        Iterator<Order> itr = treeSet.iterator();
+        while (itr.hasNext()) {
+            if (itr.next().getCurrency().equals(Currency.USD)) itr.remove();
+        }
+
+        System.out.println(treeSet);
+
     }
 }

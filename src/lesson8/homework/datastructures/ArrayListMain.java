@@ -46,68 +46,68 @@ public class ArrayListMain {
 
 
         /**sort list by Order price in decrease order*/
-//        Collections.sort(arrayList, new Comparator<Order>() {
-//            @Override
-//            public int compare(Order order1, Order order2) {
-////                Integer price1 = order1.getPrice();   :D
-////                Integer price2 = order2.getPrice();
-////                return price2.compareTo(price1);
-//                return order2.getPrice() - order1.getPrice();
-//            }
-//        });
+        Collections.sort(arrayList, new Comparator<Order>() {
+            @Override
+            public int compare(Order order1, Order order2) {
+//                Integer price1 = order1.getPrice();   :D
+//                Integer price2 = order2.getPrice();
+//                return price2.compareTo(price1);
+                return order2.getPrice() - order1.getPrice();
+            }
+        });
+
+        /**sort list by Order price in increase order AND User city*/
+        Collections.sort(arrayList, new Comparator<Order>() {
+            @Override
+            public int compare(Order order1, Order order2) {
+                if (order1.getPrice() < order2.getPrice()) return order1.getPrice() - order2.getPrice();
+                return order1.getUser().getCity().compareTo(order2.getUser().getCity());
+            }
+        });
+
+        /**sort list by Order itemName AND ShopIdentificator AND User city*/
+        Collections.sort(arrayList, new Comparator<Order>() {
+            @Override
+            public int compare(Order order1, Order order2) {
+                int result = order1.getItemName().compareTo(order2.getItemName());
+                if (result != 0) return (result);
+
+                result = order1.getShopIdentificator().compareTo(order2.getShopIdentificator());
+                if (result != 0) return (result);
+
+                result = order1.getUser().getCity().compareTo(order2.getUser().getCity());
+                return result;
+            }
+        });
+        /**delete duplicates from the list*/
+        //arrayList.removeIf(order -> Collections.frequency(arrayList, order) > 1);
+
+        /**delete items where price less than 1500*/
+        //arrayList.removeIf(order -> order.getPrice() < 1500);
+
+        /**separate list for two list - orders in USD and UAH*/
+        List<Order> usdList = new ArrayList<>();
+        List<Order> eurList = new ArrayList<>();
+        arrayList.forEach(order -> {
+            if (order.getCurrency().equals(Currency.USD)) usdList.add(order);
+            else eurList.add(order);
+        });
 //
-//        /**sort list by Order price in increase order AND User city*/
-//        Collections.sort(arrayList, new Comparator<Order>() {
-//            @Override
-//            public int compare(Order order1, Order order2) {
-//                if (order1.getPrice() < order2.getPrice()) return order1.getPrice() - order2.getPrice();
-//                return order1.getUser().getCity().compareTo(order2.getUser().getCity());
-//            }
-//        });
-//
-//        /**sort list by Order itemName AND ShopIdentificator AND User city*/
-//        Collections.sort(arrayList, new Comparator<Order>() {
-//            @Override
-//            public int compare(Order order1, Order order2) {
-//                int result = order1.getItemName().compareTo(order2.getItemName());
-//                if (result != 0) return (result);
-//
-//                result = order1.getShopIdentificator().compareTo(order2.getShopIdentificator());
-//                if (result != 0) return (result);
-//
-//                result = order1.getUser().getCity().compareTo(order2.getUser().getCity());
-//                return result;
-//            }
-//        });
-//        /**delete duplicates from the list*/
-//        //arrayList.removeIf(order -> Collections.frequency(arrayList, order) > 1);
-//
-//        /**delete items where price less than 1500*/
-//        //arrayList.removeIf(order -> order.getPrice() < 1500);
-//
-//        /**separate list for two list - orders in USD and UAH*/
-//        List<Order> usdList = new ArrayList<>();
-//        List<Order> eurList = new ArrayList<>();
-//        arrayList.forEach(order -> {
-//            if (order.getCurrency().equals(Currency.USD)) usdList.add(order);
-//            else eurList.add(order);
-//        });
-//
-//        /** - separate list for as many lists as many unique cities are in User */
-//
-//        List<ArrayList<Order>> arrayLists = new ArrayList<>();
-//        Set<String> hashSet = new HashSet<>();
-//        arrayList.forEach(order -> hashSet.add(order.getUser().getCity()));
-//        ArrayList<String> cities = new ArrayList<>();
-//        cities.addAll(hashSet);
-//        for (String city : cities) {
-//            ArrayList<Order> timesList = new ArrayList<>();
-//            for (Order order : arrayList) {
-//                if (order.getUser().getCity().equals(city)) timesList.add(order);
-//            }
-//            arrayLists.add(timesList);
-//        }
-//        System.out.println(arrayLists);
+        /** - separate list for as many lists as many unique cities are in User */
+
+        List<ArrayList<Order>> arrayLists = new ArrayList<>();
+        Set<String> hashSet = new HashSet<>();
+        arrayList.forEach(order -> hashSet.add(order.getUser().getCity()));
+        ArrayList<String> cities = new ArrayList<>();
+        cities.addAll(hashSet);
+        for (String city : cities) {
+            ArrayList<Order> timesList = new ArrayList<>();
+            for (Order order : arrayList) {
+                if (order.getUser().getCity().equals(city)) timesList.add(order);
+            }
+            arrayLists.add(timesList);
+        }
+        System.out.println(arrayLists);
     }
 }
 
