@@ -60,7 +60,7 @@ public class TreeSetMain {
 //            if (order.getUser().getLastName().equals("Petrov")) System.out.println("I SEE YOU, PETROV");
 //        });
 
-        /**- print Order with largest price using only one set method - get. у SETов нет метода get, не пойму задание  */
+        /**- print Order with largest price using only one set method - get*/
 
         /**- delete orders where currency is USD using Iterator*/
         Iterator<Order> itr = treeSet.iterator();
