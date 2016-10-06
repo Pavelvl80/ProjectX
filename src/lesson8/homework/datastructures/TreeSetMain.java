@@ -23,7 +23,7 @@ public class TreeSetMain {
 
         Order order1 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox", user1);
         Order order2 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox", user3);
-        Order order3 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox", user3);
+        Order order3 = new Order(871234, 100, Currency.USD, "Mystery box of mystery", "EmptyBox", user5);
         Order order4 = new Order(871234, 500, Currency.USD, "Mystery box of mystery", "EmptyBox", user4); //Duplicates
         Order order5 = new Order(871234, 500, Currency.USD, "Mystery box of mystery", "EmptyBox", user4); //Duplicates
         Order order6 = new Order(871234, 700, Currency.EUR, "Mystery box of mystery", "EmptyBox6", user6);
@@ -56,9 +56,10 @@ public class TreeSetMain {
 
 
         /** - check if set contain Order where User’s lastName is - “Petrov” */
-//        treeSet.forEach(order -> {
-//            if (order.getUser().getLastName().equals("Petrov")) System.out.println("I SEE YOU, PETROV");
-//        });
+        String petrov;
+        treeSet.forEach(order -> {
+            if (order.getUser().getLastName().equals("Petrov")) System.out.println(order);
+        });
 
         /**- print Order with largest price using only one set method - get*/
         int maxInt = Integer.MIN_VALUE;
