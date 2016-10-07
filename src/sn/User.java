@@ -1,5 +1,6 @@
 package sn;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -105,6 +106,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
+                ", friends=" + friends +
                 ", city='" + city + '\'' +
                 '}';
     }

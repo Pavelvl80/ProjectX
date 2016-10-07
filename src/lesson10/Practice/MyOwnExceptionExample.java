@@ -4,14 +4,14 @@ package lesson10.Practice;
  * Created by Edvard Piri on 06.10.2016.
  */
 public class MyOwnExceptionExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         String str = "system";
-        try {
+//        try {
             checkString(str);
-        } catch (Exception e) {
-            System.out.println("bad string");
+//        } catch (Exception e) {
+//            System.out.println("bad string");
             //send error ticket to admin
-        }
+//        }
     }
 
     static void checkString(String string) throws Exception {
