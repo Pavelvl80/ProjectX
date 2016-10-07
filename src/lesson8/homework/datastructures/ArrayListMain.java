@@ -42,7 +42,7 @@ public class ArrayListMain {
         arrayList.add(order9);
         arrayList.add(order10);
 
-        //System.out.println(arrayList);
+        //Sys.out.println(arrayList);
 
 
         /**sort list by Order price in decrease order*/
@@ -95,19 +95,36 @@ public class ArrayListMain {
 //
         /** - separate list for as many lists as many unique cities are in User */
 
-        List<ArrayList<Order>> arrayLists = new ArrayList<>();
-        Set<String> hashSet = new HashSet<>();
-        arrayList.forEach(order -> hashSet.add(order.getUser().getCity()));
-        ArrayList<String> cities = new ArrayList<>();
-        cities.addAll(hashSet);
-        for (String city : cities) {
-            ArrayList<Order> timesList = new ArrayList<>();
+//        List<ArrayList<Order>> arrayLists = new ArrayList<>();
+//        Set<String> hashSet = new HashSet<>();
+//        arrayList.forEach(order -> hashSet.add(order.getUser().getCity()));
+//        ArrayList<String> cities = new ArrayList<>();
+//        cities.addAll(hashSet);
+//        for (String city : cities) {
+//            ArrayList<Order> timesList = new ArrayList<>();
+//            for (Order order : arrayList) {
+//                if (order.getUser().getCity().equals(city)) timesList.add(order);
+//            }
+//            arrayLists.add(timesList);
+//        }
+//        System.out.println(arrayLists);
+
+        Map<String, ArrayList<Order>> cities = new TreeMap<>();
+        arrayList.forEach(order -> cities.put(order.getUser().getCity(), null));
+
+        for (Map.Entry<String, ArrayList<Order>> entry : cities.entrySet()) {
+            ArrayList<Order> timeList = new ArrayList<>();
             for (Order order : arrayList) {
-                if (order.getUser().getCity().equals(city)) timesList.add(order);
+                if (order.getUser().getCity().equals(entry.getKey())) timeList.add(order);
+                entry.setValue(timeList);
             }
-            arrayLists.add(timesList);
         }
-        System.out.println(arrayLists);
+        System.out.println(cities);
+
+//        Iterator<Order> itr = treeSet.iterator();
+//        while (itr.hasNext()) {
+//            if (itr.next().getCurrency().equals(Currency.USD)) itr.remove();
+//        }
     }
 }
 

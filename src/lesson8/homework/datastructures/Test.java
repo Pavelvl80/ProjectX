@@ -15,10 +15,10 @@ public class Test {
         System.out.println(arrayList.get(0));
 
 //        int a = 1;
-//        System.out.println(+a);
-//        System.out.println(test(a));
-//        System.out.println(Math.abs(a));
-//        System.out.println(a / Math.abs(a));
+//        Sys.out.println(+a);
+//        Sys.out.println(test(a));
+//        Sys.out.println(Math.abs(a));
+//        Sys.out.println(a / Math.abs(a));
 
 //    }
 //    static int test(int a) {

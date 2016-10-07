@@ -85,7 +85,7 @@ public class Order implements Comparable<Order> {
                 "pr " + price +
                 ", iN '" + itemName + '\'' +
                 ", shId'" + shopIdentificator + '\'' +
-                ", user" +
+                ", user" + user +
                 ", Currency " + currency +
                 '}';
     }

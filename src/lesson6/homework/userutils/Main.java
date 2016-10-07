@@ -19,13 +19,13 @@ public class Main {
 
 
         System.out.println(Arrays.deepToString(UserUtils.uniqueUsers(users)));
-//       System.out.println(Arrays.deepToString(UserUtils.usersWithContitionalBalance(users, 3000)));
-//        System.out.println(UserUtils.paySalaryToUsers(users));
+//       Sys.out.println(Arrays.deepToString(UserUtils.usersWithContitionalBalance(users, 3000)));
+//        Sys.out.println(UserUtils.paySalaryToUsers(users));
         for (int i = 0; i < users.length; i++) {
-//            System.out.println(users[i]);
-//            System.out.println(UserUtils.getUsersId(users)[i]);
-//            System.out.println(UserUtils.deleteEmptyUsers(users)[i]);
-//            System.out.println(users[i]);
+//            Sys.out.println(users[i]);
+//            Sys.out.println(UserUtils.getUsersId(users)[i]);
+//            Sys.out.println(UserUtils.deleteEmptyUsers(users)[i]);
+//            Sys.out.println(users[i]);
         }
     }
 }

@@ -18,11 +18,11 @@ public class Main {
         System.out.println(user1 == user2);
         System.out.println(user1 == user2);
 
-        //  System.out.println(user1 == user2);
+        //  Sys.out.println(user1 == user2);
 
-        //  System.out.println(user1 == user2);
+        //  Sys.out.println(user1 == user2);
 
-        //  System.out.println(user1 == user2);
+        //  Sys.out.println(user1 == user2);
 
         System.out.println(user1.equals(user3));
 

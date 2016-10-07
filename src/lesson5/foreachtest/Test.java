@@ -10,7 +10,7 @@ public class Test {
 
         //for (int i = 0; i < arr.length; i++) {
         //    arr[i] = i;
-        //    System.out.print(i);
+        //    Sys.out.print(i);
        // }
 
         System.out.println("\b");
