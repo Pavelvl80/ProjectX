@@ -27,8 +27,10 @@ public class UserController {
     void addToFriend(User fromUser, User toUser) {
         List<User> friends = new ArrayList<>();
         if (fromUser != null) friends.addAll(friends);
-        if (toUser != null) friends.add(toUser);
-        if (friends != null) fromUser.setFriends(friends);
+        if (toUser != null) {
+            friends.add(toUser);
+            fromUser.setFriends(friends);
+        }
     }
 
     public List<User> getUsers() {
