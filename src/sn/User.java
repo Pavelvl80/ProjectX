@@ -1,6 +1,5 @@
 package sn;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -105,9 +104,45 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
-                ", friends=" + friends +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        User user = (User) object;
+
+        if (id != user.id) return false;
+        if (age != user.age) return false;
+        if (isActive != user.isActive) return false;
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        if (friends != null ? !friends.equals(user.friends) : user.friends != null) return false;
+        if (gender != user.gender) return false;
+        if (city != null ? !city.equals(user.city) : user.city != null) return false;
+        if (dateRegistered != null ? !dateRegistered.equals(user.dateRegistered) : user.dateRegistered != null)
+            return false;
+        return dateLogin != null ? dateLogin.equals(user.dateLogin) : user.dateLogin == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + age;
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (friends != null ? friends.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (dateRegistered != null ? dateRegistered.hashCode() : 0);
+        result = 31 * result + (dateLogin != null ? dateLogin.hashCode() : 0);
+        result = 31 * result + (isActive ? 1 : 0);
+        return result;
     }
 }
