@@ -12,12 +12,11 @@ public class UserController {
 
     User checkEquals(User user) throws Exception {
         boolean check = true;
-        User result = user;
         for (User user1 : users) {
             if (user.equals(user1)) check = false;
             if (check == false) throw new Exception("EqualsUsers");
         }
-        return result;
+        return user;
     }
 
     void register(User user) throws Exception {

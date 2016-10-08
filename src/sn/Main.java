@@ -15,7 +15,7 @@ public class Main {
         try {
             controller.register(user);
             controller.register(user1);
-            controller.register(user1);
+//            controller.register(user1);
         } catch (Exception e) {
             System.err.println("two same users");
         }
