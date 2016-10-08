@@ -14,8 +14,8 @@ public class UserController {
         boolean check = true;
         for (User user1 : users) {
             if (user.equals(user1)) check = false;
-            if (check == false) throw new Exception("EqualsUsers");
         }
+        if (check == false) throw new Exception("EqualsUsers");
         return user;
     }
 
