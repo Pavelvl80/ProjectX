@@ -1,5 +1,6 @@
 package sn;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,10 +17,11 @@ public class User {
     private String city;
     private Date dateRegistered;
     private Date dateLogin;
-
     private boolean isActive;
 
-    public User(String name, String password, Gender gender, String city) {
+    public User(long id, String name, String password, Gender gender, String city) {
+        this.id = id;
+
         this.name = name;
         this.password = password;
         this.gender = gender;
@@ -27,6 +29,7 @@ public class User {
 
         this.dateRegistered = this.dateLogin = new Date();
         this.isActive = true;
+        this.friends = new ArrayList<>();
     }
 
     public String getName() {
@@ -99,6 +102,10 @@ public class User {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public long getId() {
+        return id;
     }
 
     @Override

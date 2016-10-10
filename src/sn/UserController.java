@@ -1,38 +1,48 @@
 package sn;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Edvard Piri on 06.10.2016.
  */
 public class UserController {
     //emulates db
-    List<User> users = new ArrayList<>();
+        UserDAO userDAO = new UserDAOImpl();
 
-    User checkEquals(User user) throws Exception {
-        boolean check = true;
-        for (User user1 : users) if (user.equals(user1)) check = false;
-        if (check == false) throw new Exception("EqualsUsers");
-        return user;
+//    User checkEquals(User user) throws Exception {
+//        boolean check = true;
+//        for (User user1 : users) if (user.equals(user1)) check = false;
+//        if (check == false) throw new Exception("EqualsUsers");
+//        return user;
+//    }
+//
+    void register(User user) {
+        userDAO.save(user);
     }
 
-    void register(User user) throws Exception {
-        if (user != null) users.add(checkEquals(user));
+    void deleteUser(User user) {
+        userDAO.delete(user);
+    }
+
+    void changeActiveStatus(User user) {
+        userDAO.makeInactive(user);
+    }
+
+    void update(User user) {
+        userDAO.update(user);
+    }
+
+    Set<User> getUsers() {
+        return userDAO.getUsers();
     }
 
     //TODO add to friend method/ DONE
     void addToFriend(User fromUser, User toUser) {
-        List<User> friends = new ArrayList<>();
-        if (fromUser != null) friends.addAll(friends);
-        if (toUser != null) {
-            friends.add(toUser);
-            fromUser.setFriends(friends);
-        }
-    }
-
-    public List<User> getUsers() {
-        return users;
+            fromUser.getFriends().add(toUser);
+            toUser.getFriends().add(fromUser);
     }
 
 }

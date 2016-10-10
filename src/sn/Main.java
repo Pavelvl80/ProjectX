@@ -7,23 +7,24 @@ public class Main {
     public static void main(String[] args) {
         UserController controller = new UserController();
 
-        User user = new User("Roman", "123", Gender.MALE, "Kiev");
-        User user1 = new User("Dima", "123", Gender.MALE, "Kiev");
-        User user2 = new User("Roman", "123", Gender.MALE, "Kiev");
-        User user3 = new User("Dima", "123", Gender.MALE, "Kiev");
+        User user = new User(1, "Roman", "123", Gender.MALE, "Kiev");
+        User user1 = new User(2, "Dima", "123", Gender.MALE, "Kiev");
+        User user2 = new User(3, "Roman", "123", Gender.MALE, "Kiev");
+        User user3 = new User(1, "DIMAAAAAA", "123", Gender.MALE, "Kiev");
 
-        try {
-            controller.register(user);
-            controller.register(user1);
-            controller.register(user1);
-        } catch (Exception e) {
-            System.err.println("two same users");
-        }
 
-        //TODO fix duplicates/ FIXED
-        System.out.println(controller.getUsers());
+        controller.register(user);
+        controller.register(user1);
+        controller.register(user2);
+        controller.register(user3);
 
-        //controller.addToFriend(user, user1);
+        controller.addToFriend(user, user1);
+
+        controller.deleteUser(user3);
+
+        controller.changeActiveStatus(user2);
+
+        controller.update(user3);
 
         System.out.println(controller.getUsers());
 
