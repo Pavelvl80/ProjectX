@@ -1,4 +1,4 @@
-package lesson11.homework;
+package lesson11.homework.replacer;
 
 import java.io.*;
 import java.util.Map;
@@ -36,7 +36,6 @@ public class Replacer {
             } catch (IOException e) {
                 System.out.println("can't close reader");
             }
-            String[] words = everything.split(" ");
             for (Map.Entry entry : map.entrySet()) {
                 everything = everything.replaceAll((String) entry.getKey(), (String) entry.getValue());
             }
