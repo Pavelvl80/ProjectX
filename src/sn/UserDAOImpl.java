@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User update(User user) {
         users.forEach(user1 -> {
-            if(user1.getId() == user.getId()) {
+            if (user1.getId() == user.getId()) {
                 users.remove(user1);
                 users.add(user);
             }
@@ -48,5 +48,4 @@ public class UserDAOImpl implements UserDAO {
     public Set<User> getUsers() {
         return users;
     }
-
 }

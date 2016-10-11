@@ -1,4 +1,4 @@
-package lesson11;
+package lesson11.practice;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ public class FileReaderExample {
     public static void main(String[] args) {
         BufferedReader br;
         try {
-            br = new BufferedReader(new FileReader("C:/Users/Edvard Piri/Desktop/doce.txt"));
+            br = new BufferedReader(new FileReader("C:/Users/Edvard Piri/Desktop/test.txt"));
         } catch (FileNotFoundException e) {
             System.out.println("file not found");
             return;
@@ -22,13 +22,13 @@ public class FileReaderExample {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
 
-            while (line != null && !line.equals("")) {
+            while (line != null) {
                 sb.append(line);
                 sb.append(System.lineSeparator());
-                System.out.println(line);
                 line = br.readLine();
             }
             String everything = sb.toString();
+            System.out.println(everything);
         } catch (IOException e) {
             System.out.println("read failed");
         } finally {
