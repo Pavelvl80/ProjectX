@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Replacer rep = new Replacer();
         Map<String, String > map = new HashMap<>();
-        map.put("dream", "fall");
+        map.put("fall", "rom");
         map.put("is", "in");
         map.put("df", "on");
 
