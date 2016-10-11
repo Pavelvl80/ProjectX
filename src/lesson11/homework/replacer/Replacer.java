@@ -36,26 +36,27 @@ public class Replacer {
             } catch (IOException e) {
                 System.out.println("can't close reader");
             }
-            for (Map.Entry entry : map.entrySet()) {
-                everything = everything.replaceAll((String) entry.getKey(), (String) entry.getValue());
-            }
+        }
+        for (Map.Entry entry : map.entrySet()) {
+            everything = everything.replaceAll((String) entry.getKey(), (String) entry.getValue());
+        }
+        try {
+            bw = new BufferedWriter(new FileWriter("C:/Users/Edvard Piri/Desktop/test.txt"));
+        } catch (IOException e) {
+            System.out.println("File not found");
+        }
+        try {
+            bw.write(everything);
+        } catch (IOException e) {
+            System.out.println("Write failed");
+        } finally {
             try {
-                bw = new BufferedWriter(new FileWriter("C:/Users/Edvard Piri/Desktop/test.txt"));
+                bw.close();
             } catch (IOException e) {
-                System.out.println("File not found");
-            }
-            try {
-                bw.write(everything);
-            } catch (IOException e) {
-                System.out.println("Write failed");
-            } finally {
-                try {
-                    bw.close();
-                } catch (IOException e) {
-                    System.out.println("can't close writer");
-                }
+                System.out.println("can't close writer");
             }
         }
+
 
         return everything;
     }
