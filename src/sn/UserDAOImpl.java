@@ -27,6 +27,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User makeInactive(User user) {
         users.forEach(user1 -> {
+            //TODO else if (user1.equals(user)) user1.setActive(true); -- this code is not needed here
             if (user1.equals(user) && user1.isActive() == true) user1.setActive(false);
             else if (user1.equals(user)) user1.setActive(true);
         });
