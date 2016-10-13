@@ -19,6 +19,8 @@ public class Replacer {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
+
+        //TODO null pointer can be here, change it please
         try {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -31,6 +33,8 @@ public class Replacer {
         } catch (IOException e) {
             System.out.println("Read failed");
         } finally {
+
+            //TODO null pointer can be here, change it please
             try {
                 br.close();
             } catch (IOException e) {
@@ -46,11 +50,14 @@ public class Replacer {
             System.out.println("File not found");
         }
         try {
+
+            //TODO null pointer can be here, change it please
             bw.write(everything);
         } catch (IOException e) {
             System.out.println("Write failed");
         } finally {
             try {
+                //TODO null pointer can be here, change it please
                 bw.close();
             } catch (IOException e) {
                 System.out.println("can't close writer");
