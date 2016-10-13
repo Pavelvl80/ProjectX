@@ -1,48 +1,88 @@
 package sn;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
-/**
- * Created by Edvard Piri on 06.10.2016.
- */
 public class UserController {
-    //emulates db
-        UserDAO userDAO = new UserDAOImpl();
+    //db connection emul
+    private UserDAO userDAO = new UserDAOImpl();
 
-//    User checkEquals(User user) throws Exception {
-//        boolean check = true;
-//        for (User user1 : users) if (user.equals(user1)) check = false;
-//        if (check == false) throw new Exception("EqualsUsers");
-//        return user;
-//    }
-//
-    void register(User user) {
-        userDAO.save(user);
+    //db connection emulator
+    private MessageDAO messageDAO = new MessageDAOImpl();
+
+    User login(String name, String password) throws Exception {
+        User curUser = userDAO.get(name, password);
+
+        if (curUser == null)
+            throw new Exception("wrong username or password");
+
+        userDAO.setLogin(curUser);
+
+        return curUser;
     }
 
-    void deleteUser(User user) {
-        userDAO.delete(user);
+    void logout(User user) {
+        userDAO.setLogin(user);
     }
 
-    void changeActiveStatus(User user) {
-        userDAO.makeInactive(user);
+    //json format
+    User register(User user) throws Exception {
+        //dbConnection.save(user)
+        User savedUser = userDAO.save(user);
+
+        if (savedUser == null) throw new Exception("user is not saved");
+
+        user.setLogged(true);
+        return user;
     }
 
-    void update(User user) {
-        userDAO.update(user);
-    }
-
-    Set<User> getUsers() {
-        return userDAO.getUsers();
-    }
-
-    //TODO add to friend method/ DONE
-    void addToFriend(User fromUser, User toUser) {
+    void addToFriend(User fromUser, User toUser) throws Exception {
+        //bad option
+        /*if(fromUser.isLogged()) {
             fromUser.getFriends().add(toUser);
             toUser.getFriends().add(fromUser);
+        }
+        else {
+            throw new Exception("you are is not logged in");
+        }*/
+
+        if (!fromUser.isLogged()) throw new Exception("you are is not logged in");
+
+        fromUser.getFriends().add(toUser);
+        toUser.getFriends().add(fromUser);
     }
+
+
+    List<Message> getMessages(long userId) {
+        //if (!fromUser.isLogged()) throw new Exception("you are is not logged in");
+        return messageDAO.getByUserId(userId);
+    }
+
+
+    Map<User, List<Message>> getMessageByUsers(long userId) {
+        //TODO make implemetation
+
+        return null;
+    }
+
+    List<Message> outboxMessages(long userId) {
+        //TODO make implemetation
+
+        return null;
+    }
+
+    List<Message> inboxMessages(long userId) {
+        //TODO make implemetation
+
+        return null;
+    }
+
+
+    //inclass
+    //TODO inboxMessages/outboxMessages for time period
+
+
+
 
 }

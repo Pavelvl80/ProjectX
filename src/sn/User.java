@@ -4,32 +4,45 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Edvard Piri on 06.10.2016.
- */
 public class User {
     private long id;
     private String name;
     private int age;
+    private Gender gender;
     private String password;
     private List<User> friends;
-    private Gender gender;
+
     private String city;
     private Date dateRegistered;
     private Date dateLogin;
+
     private boolean isActive;
 
-    public User(long id, String name, String password, Gender gender, String city) {
-        this.id = id;
+    //temlporary
+    private boolean isLogged;
 
+    public User(long id, String name, Gender gender, String password, String city) {
+        this.id = id;
         this.name = name;
-        this.password = password;
         this.gender = gender;
+        this.password = password;
         this.city = city;
 
         this.dateRegistered = this.dateLogin = new Date();
         this.isActive = true;
         this.friends = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -48,6 +61,14 @@ public class User {
         this.age = age;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -62,14 +83,6 @@ public class User {
 
     public void setFriends(List<User> friends) {
         this.friends = friends;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
     }
 
     public String getCity() {
@@ -104,16 +117,11 @@ public class User {
         isActive = active;
     }
 
-    public long getId() {
-        return id;
+    public boolean isLogged() {
+        return isLogged;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                '}';
+    public void setLogged(boolean logged) {
+        isLogged = logged;
     }
 }
