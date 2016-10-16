@@ -11,6 +11,8 @@ public class MessagesController {
 
         Message message = new Message(101, msg, fromUser, toUser);
 
+        message.setMessageType(MessageType.OUT);
+
         messageDAO.save(message);
 
         return message;

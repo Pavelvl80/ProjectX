@@ -1,8 +1,9 @@
 package sn;
 
 
-import java.util.List;
-import java.util.Map;
+import lesson8.homework.datastructures.Order;
+
+import java.util.*;
 
 public class UserController {
     //db connection emul
@@ -60,29 +61,50 @@ public class UserController {
     }
 
 
-    Map<User, List<Message>> getMessageByUsers(long userId) {
+    Map<User, List<Message>> getMessageByUsers(List<User> users ) {
         //TODO make implemetation
+        //задание: разделить сообщения по юзерам (fromUser)
+        Map<User, List<Message>> messages = new HashMap<>();
+        List<Message> allMessages = messageDAO.getAll();
+        allMessages.forEach(message -> messages.put(message.getFromUser(), null));
 
-        return null;
+        for (Map.Entry<User, List<Message>> entry : messages.entrySet()) {
+            ArrayList<Message> timeList = new ArrayList<>();
+            for (Message message : allMessages) {
+                if (message.getFromUser().equals(entry.getKey())) timeList.add(message);
+            }
+            entry.setValue(timeList);
+        }
+        return messages;
     }
 
     List<Message> outboxMessages(long userId) {
         //TODO make implemetation
+        List<Message> allMessages = messageDAO.getByUserId(userId);
+        List<Message> outBoxMessages = new ArrayList<>();
 
-        return null;
+        allMessages.forEach(message -> {
+            if(message.getMessageType() != null && message.getMessageType().equals(MessageType.OUT))
+                outBoxMessages.add(message);
+        });
+
+        return outBoxMessages;
     }
 
     List<Message> inboxMessages(long userId) {
         //TODO make implemetation
+        List<Message> allMessages = messageDAO.getByUserId(userId);
+        List<Message> inBoxMessages = new ArrayList<>();
 
-        return null;
+        allMessages.forEach(message -> {
+            if(message.getMessageType() != null && message.getMessageType().equals(MessageType.IN))
+                inBoxMessages.add(message);
+        });
+        return inBoxMessages;
     }
 
 
     //inclass
     //TODO inboxMessages/outboxMessages for time period
-
-
-
 
 }

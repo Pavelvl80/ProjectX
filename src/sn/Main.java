@@ -1,32 +1,42 @@
 package sn;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Edvard Piri on 06.10.2016.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         UserController controller = new UserController();
+        MessagesController msgController = new MessagesController();
 
-        User user = new User(1, "Roman", "123", Gender.MALE, "Kiev");
-        User user1 = new User(2, "Dima", "123", Gender.MALE, "Kiev");
-        User user2 = new User(3, "Roman", "123", Gender.MALE, "Kiev");
-        User user3 = new User(1, "DIMAAAAAA", "123", Gender.MALE, "Kiev");
-
+        User user = new User(1001, "Roman", Gender.MALE, "123", "Kiev");
+        User user1 = new User(1002, "Dima", Gender.MALE, "123pp", "Odessa");
+        User user2 = new User(1003, "Rita", Gender.FEMALE, "1", "Odessa");
 
         controller.register(user);
         controller.register(user1);
-        controller.register(user2);
-        controller.register(user3);
+
 
         controller.addToFriend(user, user1);
 
-        controller.deleteUser(user3);
+        msgController.sendMessage(user, user1, "Привет !!!");
+        msgController.sendMessage(user1, user, "Пока! ");
 
-        controller.changeActiveStatus(user2);
+        List<User> users = new ArrayList<>();
+        users.add(user);
+        users.add(user1);
+        users.add(user2);
 
-        controller.update(user3);
 
-        System.out.println(controller.getUsers());
+        //msgController.getMessageDAO().getByUserId(user.getId());
+//        List<Message> list = controller.outboxMessages(1001);
+//
+//        System.out.println(list);
+        //make at least 3 tests
+        System.out.println(controller.getMessageByUsers(users));
 
+        System.out.println("test");
     }
 }

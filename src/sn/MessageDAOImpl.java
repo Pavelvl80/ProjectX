@@ -1,13 +1,7 @@
 package sn;
 
-/**
- * Created by Edvard Piri on 13.10.2016.
- */
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class MessageDAOImpl implements MessageDAO {
 
@@ -37,5 +31,10 @@ public class MessageDAOImpl implements MessageDAO {
     @Override
     public List<Message> getByUser(User user) {
         return null;
+    }
+
+    @Override
+    public List<Message> getAll() {
+        return messages;
     }
 }

@@ -1,19 +1,20 @@
 package sn;
 
-/**
- * Created by Edvard Piri on 13.10.2016.
- */
+import java.util.List;
+
 
 public interface AbstractDAO<T> {
     T save(T t);
 
-    //
+    T delete(T t);
 
-    //
+    T makeInactive(T t);
 
-    //
+    T update(T t);
 
-    //
+    List<T> getAll();
 
-    //
+    List<T> getByUserId(long id);
+
+
 }

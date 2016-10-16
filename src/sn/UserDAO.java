@@ -5,11 +5,11 @@ import java.util.Set;
 public interface UserDAO {
     User save(User user);
 
-    Set<User> getAll();
-
     User get(String name, String psw);
 
     void setLogin(User user);
+
+    Set<User> getAll();
 
     //User delete(User user);
 

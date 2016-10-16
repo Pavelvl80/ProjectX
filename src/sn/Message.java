@@ -73,4 +73,18 @@ public class Message {
     public boolean isActive() {
         return isActive;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", msg='" + msg + '\'' +
+                ", fromUser=" + fromUser +
+                ", toUser=" + toUser +
+                ", dateSent=" + dateSent +
+                ", dateRead=" + dateRead +
+                ", messageType=" + messageType +
+                ", isActive=" + isActive +
+                '}';
+    }
 }
