@@ -1,19 +1,19 @@
 package sn;
 
-import java.util.Set;
+import java.util.List;
 
-public interface UserDAO {
+public interface UserDAO  {
     User save(User user);
 
     User get(String name, String psw);
 
     void setLogin(User user);
 
-    Set<User> getAll();
+    List<User> getAll();
 
-    //User delete(User user);
+    User delete(User user);
 
-    //User makeInactive(User user);
+    User makeInactive(User user);
 
-    //User update(User user);
+    User update(User user);
 }

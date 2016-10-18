@@ -1,8 +1,6 @@
 package sn;
 
 
-import lesson8.homework.datastructures.Order;
-
 import java.util.*;
 
 public class UserController {
@@ -21,6 +19,10 @@ public class UserController {
         userDAO.setLogin(curUser);
 
         return curUser;
+    }
+
+    public List<User> getUsers() {
+        return userDAO.getAll();
     }
 
     void logout(User user) {

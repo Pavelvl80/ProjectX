@@ -1,25 +1,26 @@
 package sn;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl extends AbstractDAOImpl<User> implements UserDAO {
     //emulates db
-    private static Set<User> users = new HashSet<>();
+    private static List<User> users = new ArrayList<>();
 
-    @Override
-    public User save(User user) {
-        users.add(user);
-        return user;
-    }
+//    @Override
+//    public User save(User user) {
+//        users.add(user);
+//        return user;
+//    }
 
     @Override
     public void setLogin(User user) {
+        int i = users.indexOf(user);
+
         if (user.isLogged()) user.setLogged(false);
         else user.setLogged(true);
 
-        users.remove(user);
-        users.add(user);
+        users.set(i, user);
     }
 
     @Override
@@ -32,8 +33,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Set<User> getAll() {
-        return users;
-    }
+    public User makeInactive(User user) {
+        int i = users.indexOf(user);
+        user.setActive(false);
+        users.set(i, user);
 
+        return user;
+    }
 }

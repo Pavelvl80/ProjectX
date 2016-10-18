@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class User {
+public class User extends Test {
     private long id;
     private String name;
     private int age;

@@ -15,14 +15,20 @@ public class Main {
         User user1 = new User(1002, "Dima", Gender.MALE, "123pp", "Odessa");
         User user2 = new User(1003, "Rita", Gender.FEMALE, "1", "Odessa");
 
+        System.out.println(controller.getUsers());
+
         controller.register(user);
         controller.register(user1);
 
+        System.out.println(controller.getUsers());
 
         controller.addToFriend(user, user1);
 
         msgController.sendMessage(user, user1, "Привет !!!");
         msgController.sendMessage(user1, user, "Пока! ");
+
+        System.out.println(controller.getUsers());
+        System.out.println();
 
         List<User> users = new ArrayList<>();
         users.add(user);
@@ -35,8 +41,8 @@ public class Main {
 //
 //        System.out.println(list);
         //make at least 3 tests
-        System.out.println(controller.getMessageByUsers(users));
-
-        System.out.println("test");
+//        System.out.println(controller.getMessageByUsers(users));
+//
+//        System.out.println("test");
     }
 }

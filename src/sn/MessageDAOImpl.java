@@ -3,16 +3,16 @@ package sn;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageDAOImpl implements MessageDAO {
+public class MessageDAOImpl extends AbstractDAOImpl<Message> implements MessageDAO {
 
     private static List<Message> messages = new ArrayList<>();
 
 
-    @Override
-    public Message save(Message message) {
-        messages.add(message);
-        return message;
-    }
+//    @Override
+//    public Message save(Message message) {
+//        messages.add(message);
+//        return message;
+//    }
 
     @Override
     public List<Message> getByUserId(long id) {
