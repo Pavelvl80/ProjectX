@@ -7,8 +7,7 @@ import java.util.List;
  * Created by Edvard Piri on 13.10.2016.
  */
 public class AbstractDAOImpl<T extends Message> implements AbstractDAO<T> {
-    List<T> db = new ArrayList<>();
-
+     List<T> db = new ArrayList<>();
     //make six methods with generics
 
 
@@ -47,6 +46,8 @@ public class AbstractDAOImpl<T extends Message> implements AbstractDAO<T> {
 
     @Override
     public List<T> getAllWithParameter(List<String> params) {
+        List<String > result = new ArrayList<>();
+
         return null;
     }
 }

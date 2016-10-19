@@ -19,6 +19,7 @@ public class Main {
 
         controller.register(user);
         controller.register(user1);
+        controller.register(user2);
 
         System.out.println(controller.getUsers());
 
@@ -28,7 +29,6 @@ public class Main {
         msgController.sendMessage(user1, user, "Пока! ");
 
         System.out.println(controller.getUsers());
-        System.out.println();
 
         List<User> users = new ArrayList<>();
         users.add(user);
@@ -36,11 +36,13 @@ public class Main {
         users.add(user2);
 
 
-        //msgController.getMessageDAO().getByUserId(user.getId());
-//        List<Message> list = controller.outboxMessages(1001);
-//
-//        System.out.println(list);
-        //make at least 3 tests
+//        msgController.getMessageDAO().getByUserId(user.getId());
+        List<Message> list = controller.outboxMessages(1001);
+
+        System.out.println(msgController.getMessageDAO());
+
+        System.out.println(list);
+//        make at least 3 tests
 //        System.out.println(controller.getMessageByUsers(users));
 //
 //        System.out.println("test");

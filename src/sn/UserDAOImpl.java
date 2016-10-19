@@ -7,7 +7,8 @@ public class UserDAOImpl extends AbstractDAOImpl<User> implements UserDAO {
     //emulates db
     private static List<User> users = new ArrayList<>();
 
-//    @Override
+
+    //    @Override
 //    public User save(User user) {
 //        users.add(user);
 //        return user;
@@ -39,5 +40,10 @@ public class UserDAOImpl extends AbstractDAOImpl<User> implements UserDAO {
         users.set(i, user);
 
         return user;
+    }
+
+    @Override
+    public List<User> getAll() {
+        return users;
     }
 }

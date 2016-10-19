@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class User extends Test {
+public class User {
     private long id;
     private String name;
     private int age;
@@ -40,6 +40,7 @@ public class User extends Test {
                 ", city='" + city + '\'' +
                 '}';
     }
+
 
     public long getId() {
         return id;

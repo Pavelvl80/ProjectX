@@ -2,12 +2,13 @@ package sn;
 
 import java.util.Date;
 
-public class Message extends Test {
-    private long id;
+public class Message  {
 
     //in real systems string is not used
     //blob clob
     private String msg;
+
+    private long id;
 
     private User fromUser;
     private User toUser;
@@ -29,6 +30,9 @@ public class Message extends Test {
         this.isActive = true;
     }
 
+    public long getId() {
+        return id;
+    }
 
     public MessageType getMessageType() {
         return messageType;
@@ -46,9 +50,6 @@ public class Message extends Test {
         isActive = active;
     }
 
-    public long getId() {
-        return id;
-    }
 
     public String getMsg() {
         return msg;
@@ -77,7 +78,6 @@ public class Message extends Test {
     @Override
     public String toString() {
         return "Message{" +
-                "id=" + id +
                 ", msg='" + msg + '\'' +
                 ", fromUser=" + fromUser +
                 ", toUser=" + toUser +
